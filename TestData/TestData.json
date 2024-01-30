@@ -1,0 +1,326 @@
+{
+  "status": "success",
+  "results": [
+    {
+      "tests": [
+        {
+          "name": "TestLoginSuccessful_C1",
+          "status": "success",
+          "duration": 0.721, // This is the calculated execution time in seconds.
+          "message": null,
+          "metrics": [
+            {
+              "name": "LoginSpeed",
+              "value": 0.123
+            },
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:00.000"
+            },
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:00.721"
+            }
+          ]
+        },
+        {
+          "name": "SearchProductAvailability_C2",
+          "status": "error",
+          "duration": 1.876, // Estimated execution time in seconds.
+          "message": "Stock information unavailable for item ID 312",
+          "metrics": [
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:01.000"
+            }, // Start time based on relative interval.
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:02.876"
+            } // End time based on start time and duration.
+          ]
+        },
+        {
+          "name": "AddProductToCart_C3",
+          "status": "success",
+          "duration": 0.549, // Estimated execution time in seconds.
+          "message": null,
+          "metrics": [
+            {
+              "name": "CartItems",
+              "value": 1
+            }, // Number of items added to cart.
+            {
+              "name": "CartValue",
+              "value": 78.90
+            }, // Total value of items in cart.
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:03.000"
+            }, // Start time based on relative interval.
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:03.549"
+            } // End time based on start time and duration.
+          ]
+        },
+        {
+          "name": "CheckoutProcess_C4",
+          "status": "skipped", 
+          "duration": 3.201, // Estimated execution time in seconds.
+          "message": "Payment gateway timed out, retry required",
+          "metrics": [
+            {
+              "name": "CartAbandonmentRate",
+              "value": 0.05
+            }, // Estimated cart abandonment rate due to checkout issue.
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:06.000"
+            }, // Start time based on relative interval.
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:09.201"
+            } // End time based on start time and duration.
+          ]
+        },
+
+        {
+          "name": "TestSubmitOrder_C5",
+          "status": "error",
+          "duration": 1.472, // Estimated execution time in seconds.
+          "message": "Order validation failed: missing shipping address",
+          "metrics": [
+            {
+              "name": "OrderSubmissionFailures",
+              "value": 1
+            }, // Number of failed order submissions due to validation issues.
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:09.201"
+            }, // Start time based on relative interval.
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:10.673"
+            } // End time based on start time and duration.
+          ]
+        },
+        {
+          "name": "TestUpdateShippingAddress_C6",
+          "status": "success",
+          "duration": 0.835, // Estimated execution time in seconds.
+          "message": null,
+          "metrics": [
+            {
+              "name": "AddressUpdateAttempts",
+              "value": 1
+            }, // Number of attempts to update shipping address.
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:10.673"
+            }, // Start time based on relative interval.
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:11.508"
+            } // End time based on start time and duration.
+          ]
+        },
+        {
+          "name": "TestConfirmOrderWithUpdatedAddress_C7",
+          "status": "inconclusive",
+          "duration": 2.743, // Estimated execution time in seconds.
+          "message": "Order confirmation failed: payment gateway unavailable",
+          "metrics": [
+            {
+              "name": "CartAbandonmentRate",
+              "value": 0.10
+            }, // Estimated cart abandonment rate due to confirmation issue.
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:11.508"
+            }, // Start time based on relative interval.
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:14.251"
+            } // End time based on start time and duration.
+          ]
+        },
+        {
+          "name": "TestRetryPaymentAndConfirmOrder_C8",
+          "status": "success",
+          "duration": 4.827, // Estimated execution time in seconds.
+          "message": null,
+          "metrics": [
+            {
+              "name": "PaymentRetryAttempts",
+              "value": 2
+            }, // Number of attempts required to successfully process payment.
+            {
+              "name": "OrderConfirmationRate",
+              "value": 0.95
+            }, // Estimated order confirmation rate after payment success.
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:14.251"
+            }, // Start time based on relative interval.
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:19.078"
+            } // End time based on start time and duration.
+          ]
+        },
+        {
+          "name": "TestFinalizeOrderAndReceiveConfirmationEmail_C9",
+          "status": "success",
+          "duration": 1.259, // Estimated execution time in seconds.
+          "message": null,
+          "metrics": [
+            {
+              "name": "OrderFinalizationDelay",
+              "value": 0.321
+            }, // Estimated delay in finalizing the order after payment confirmation.
+            {
+              "name": "EmailDeliveryTime",
+              "value": 5.678
+            }, // Estimated time for confirmation email delivery after order finalization.
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:19.078"
+            }, // Start time based on relative interval.
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:20.337"
+            } // End time based on start time and duration.
+          ]
+        },
+        {
+          "name": "TestOrderTrackingFunctionality_C10",
+          "status": "success",
+          "duration": 2.174, // Estimated execution time in seconds.
+          "message": null,
+          "metrics": [
+            {
+              "name": "TrackingUpdatesFrequency",
+              "value": 2
+            }, // Number of tracking updates received during test.
+            {
+              "name": "AverageTrackingResponseTime",
+              "value": 1.5
+            }, // Estimated average time for receiving tracking updates in seconds.
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:20.337"
+            }, // Start time based on relative interval.
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:22.511"
+            } // End time based on start time and duration.
+          ]
+        },
+        {
+          "name": "TestOrderDeliveryConfirmationAndReview_C11",
+          "status": "success",
+          "duration": 3.482, // Estimated execution time in seconds.
+          "message": null,
+          "metrics": [
+            {
+              "name": "DeliveryDelay",
+              "value": 0.725
+            }, // Estimated delay in order delivery compared to estimated timeframe.
+            {
+              "name": "ReviewSubmissionRate",
+              "value": 0.80
+            }, // Estimated percentage of users submitting product reviews after delivery.
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:22.511"
+            }, // Start time based on relative interval.
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:25.993"
+            } // End time based on start time and duration.
+          ]
+        },
+        {
+          "name": "TestCustomerSupportResponsiveness_C12",
+          "status": "success",
+          "duration": 0.936, // Estimated execution time in seconds.
+          "message": null,
+          "metrics": [
+            {
+              "name": "AverageResponseTime",
+              "value": 30
+            }, // Estimated average response time for customer support inquiries in seconds.
+            {
+              "name": "CustomerSatisfactionRate",
+              "value": 0.92
+            }, // Estimated percentage of customers satisfied with support responsiveness.
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:25.993"
+            }, // Start time based on relative interval.
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:26.929"
+            } // End time based on start time and duration.
+          ]
+        },
+        {
+          "name": "TestAccountManagementFeatures_C13",
+          "status": "success",
+          "duration": 1.625, // Estimated execution time in seconds.
+          "message": null,
+          "metrics": [
+            {
+              "name": "FeatureAccessibility",
+              "value": 100
+            }, // Percentage of account management features successfully accessed and tested.
+            {
+              "name": "UserInterfaceClarity",
+              "value": 4.5
+            }, // Average rating (out of 5) for user interface clarity and ease of use.
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:26.929"
+            }, // Start time based on relative interval.
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:28.554"
+            } // End time based on start time and duration.
+          ]
+        },
+        {
+          "name": "SearchProductAvailability_C2",
+          "status": "skipped",
+          "duration": 1.876, // Estimated execution time in seconds.
+          "message": "Deprecated scenario, no longer supported due to obsolete product search functionality",
+          "metrics": [
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:01.000"
+            }, // Start time based on relative interval.
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:02.876"
+            } // End time based on start time and duration.
+          ]
+        },
+        {
+          "name": "TestRecommendationEnginePersonalization_C14",
+          "status": "skipped",
+          "duration": 0.000, // Estimated execution time in seconds.
+          "message": "Skipped due to time constraints and prioritization of other test cases",
+          "metrics": [
+            {
+              "name": "Start Time",
+              "value": "2024-01-29 00:00:28.554"
+            }, // Start time based on relative interval.
+            {
+              "name": "End Time",
+              "value": "2024-01-29 00:00:28.554"
+            } // End time based on start time and duration.
+          ]
+        }
+      ]
+    }
+  ]
+}
