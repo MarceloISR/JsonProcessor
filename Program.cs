@@ -37,7 +37,7 @@ try
             if ( export == "y")
             {
                 FileHelper fileHelper = new FileHelper();
-                fileHelper.CreateCSV("../../../Export/", "export.csv", output);
+                fileHelper.CreateCSV("", "export.csv", output);
                 Console.WriteLine("Document exported");
             }
 
