@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JsonProcessor
+namespace JsonProcessor.Helpers
 {
     public class JSONHelper
     {
@@ -16,10 +16,10 @@ namespace JsonProcessor
         /// </summary>
         /// <param name="jsonFilePath">string: a text with the path to the JSON file</param>
         /// <returns>parsed Object from JSON file</returns>
-        public static TestResults? ReadJSONFile(string? jsonFilePath= null)
+        public static TestResults? ReadJSONFile(string? jsonFilePath = null)
         {
             string jsonPath = string.IsNullOrWhiteSpace(jsonFilePath) ? "../../../TestData/TestData.json" : jsonFilePath;
-         
+
             var jsonData = File.ReadAllText(jsonPath);
 
             return DeserializeJSONData(jsonData);
@@ -30,7 +30,8 @@ namespace JsonProcessor
         /// </summary>
         /// <param name="jsonData"></param>
         /// <returns></returns>
-        private static TestResults? DeserializeJSONData(string jsonData) {
+        private static TestResults? DeserializeJSONData(string jsonData)
+        {
             return JsonConvert.DeserializeObject<TestResults>(jsonData);
         }
 

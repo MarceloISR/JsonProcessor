@@ -9,6 +9,7 @@ namespace CodeChallenge.Maps
     public class TestResults
     {
         public string? Status { get; set; }
+        public string? Message { get; set; }
         public List<Result>? Results { get; set; }
     }
 }
