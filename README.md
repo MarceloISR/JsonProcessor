@@ -39,9 +39,4 @@ The project is calculating
     - **metrics** (list): list of metric objects
         - **name** (string): Name of the metric
         - **value** (float): Value of the metric
-## Related
-
-Here are some related projects
-
-[Awesome README](https://github.com/matiassingers/awesome-readme)
 
