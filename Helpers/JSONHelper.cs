@@ -29,8 +29,8 @@ namespace JsonProcessor.Helpers
         /// Parse JSON data to an Object
         /// </summary>
         /// <param name="jsonData"></param>
-        /// <returns></returns>
-        private static TestResults? DeserializeJSONData(string jsonData)
+        /// <returns>TestResult object</returns>
+        public static TestResults? DeserializeJSONData(string jsonData)
         {
             return JsonConvert.DeserializeObject<TestResults>(jsonData);
         }
@@ -38,10 +38,10 @@ namespace JsonProcessor.Helpers
         /// <summary>
         /// Parse TestResult object to JSON Format
         /// </summary>
-        /// <param name="testResults"></param>
-        private static void SerializeJSONData(TestResults testResults)
+        /// <param name="testResults">string data</param>
+        public static string SerializeJSONData(TestResults testResults)
         {
-            new NotImplementedException();
+           return JsonConvert.SerializeObject(testResults);
         }
 
     }
