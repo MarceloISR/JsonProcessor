@@ -8,18 +8,19 @@ using JsonProcessor.Helpers;
 Console.WriteLine("Welcome");
 Console.WriteLine("Add the path to the json file or leave empty for default data");
 Console.WriteLine("e.g. D:\\TestData\\TestData.json");
+//Read the path to the JSON file or receive empty string
+var JSONpath = Console.ReadLine();
+TestResults? output = JSONHelper.ReadJSONFile(JSONpath);
 
 Console.WriteLine("Wanna display the metrics? Y/N");
-string metrics = Console.ReadLine() ?? "Y";
+string metrics = Console.ReadLine().ToLower() ?? "y";
 
 Console.WriteLine("Wanna export the JSON to a CSV file? Y/N");
-string export = Console.ReadLine() ?? "Y";
+string export = Console.ReadLine().ToLower() ?? "y";
 
 try
 {
-    //Read the path to the JSON file or receive empty string
-    var JSONpath = Console.ReadLine();
-    TestResults? output = JSONHelper.ReadJSONFile(JSONpath);
+    
 
     if (output != null)
     {
@@ -27,16 +28,17 @@ try
         if (output.Status == "success" )
         {
             
-            if( metrics == "Y")
+            if( metrics == "y")
             {
                 Processor.DisplayMetrics(output);
             }
 
             
-            if ( export == "Y")
+            if ( export == "y")
             {
                 FileHelper fileHelper = new FileHelper();
-                fileHelper.CreateCSV("../../export/", "export.csv", output);
+                fileHelper.CreateCSV("../../../Export/", "export.csv", output);
+                Console.WriteLine("Document exported");
             }
 
         }

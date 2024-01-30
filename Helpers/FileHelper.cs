@@ -1,27 +1,44 @@
-﻿using ClosedXML.Excel;
+﻿using IronXL;
 using CodeChallenge.Maps;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CsvHelper;
-using System.Globalization;
-using System.IO;
+
 
 namespace JsonProcessor.Helpers
 {
     public class FileHelper
     {
 
-        public void CreateCSV(string outputfile, string outputPath, TestResults testData)
+        public void CreateCSV(string outputPath,string outputfile, TestResults testData)
         {
-            using (var writer = new StreamWriter($"{outputPath}/{outputfile}"))
+            WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
 
-            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            string shortDate = DateTime.Now.ToString("MM_dd_yyyy");
+    
+            string timeOnly = DateTime.Now.ToString("HH-mm-ss tt");
+            var workSheet = workBook.CreateWorkSheet($"{shortDate} {timeOnly}");
+
+            int index = 1;
+
+            workSheet["A1"].Value = "name";
+            workSheet["B1"].Value = "status";
+            workSheet["C1"].Value = "duration";
+            workSheet["D1"].Value = "Start Time";
+            workSheet["E1"].Value = "End Time";
+            workSheet["F1"].Value = "message";
+
+            foreach (var test in testData.Results[0].Tests)
             {
-                csv.WriteRecords(JSONHelper.SerializeJSONData(testData));
+                workSheet[$"A{index + 1}"].Value = test.Name;
+                workSheet[$"B{index + 1}"].Value = test.Status;
+                workSheet[$"C{index + 1}"].Value = test.Duration;              
+
+                workSheet[$"D{index + 1}"].Value = test.Metrics?.Single(x => x.Name == "Start Time").Value;
+                workSheet[$"E{index + 1}"].Value = test.Metrics?.Single(x => x.Name == "End Time").Value;
+                workSheet[$"F{index + 1}"].Value = test.Message;
+                index++;
             }
+            var path = outputPath + outputfile;
+            workBook.SaveAs(outputPath+outputfile);
+            
         }
     }
 }
