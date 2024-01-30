@@ -40,10 +40,7 @@ namespace JsonProcessor
         /// <param name="testResults"></param>
         private static void SerializeJSONData(TestResults testResults)
         {
-            //Person person = new Person { Name = "John Doe", Age = 30 };
-            //string json = JsonConvert.SerializeObject(person);
-            //Console.WriteLine(json); // Output: {"Name":"John Doe","Age":30
-
+            new NotImplementedException();
         }
 
     }
