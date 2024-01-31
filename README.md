@@ -40,3 +40,28 @@ The project is calculating
         - **name** (string): Name of the metric
         - **value** (float): Value of the metric
 
+
+```javascript
+{
+  "status": "success" | "error",
+  "results": [
+    {
+      "tests": [
+        {
+          "name": string,
+          "status": "success" | "error" | "skip",
+          "duration": float,
+          "message": string,
+          "metrics": [
+            {
+              "name": string,
+              "value": string
+            }
+          ] 
+        }
+      ]
+     
+    }
+  ]
+}
+```
